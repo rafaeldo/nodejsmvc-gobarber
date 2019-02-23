@@ -22,9 +22,11 @@ routes.post('/signup', upload.single('avatar'), UserController.store)
 // Auth Middleware Guard
 routes.use('/app', authMiddleware)
 
+// ROUTES
 routes.get('/app/dashboard', (req, res) => {
   console.log(req.session.user)
   res.render('dashboard')
 })
+routes.get('/app/logout', SessionController.destroy)
 
 module.exports = routes
