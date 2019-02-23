@@ -2,9 +2,11 @@
 
 {% block body %}
   <div class="content">
+    {# WELCOME MESSAGE #}
     <strong>Olá, {{ user.name }}</strong>
     <p>Inicie um agendamento escolhendo um profissional abaixo:</p>
 
+    {# PROVIDERS #}
     <ul class="profissionais">
       {% for provider in providers %}
         <li class="provider">
@@ -12,11 +14,12 @@
             <img src="/files/{{ provider.avatar }}">
             <strong>{{ provider.name }}</strong>
           </div>
-          <a href="">+</a>
+          <a href="/app/appointments/new/{{ provider.id }}">+</a>
         </li>
       {% endfor %}
     </ul>
 
+    {# LOGOUT #}
     <a href="/app/logout" class="logout">Sair</a>
   </div>
 {% endblock %}
