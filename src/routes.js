@@ -5,6 +5,7 @@ const routes = express.Router()
 const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
 const DashboardController = require('./app/controllers/DashboardController')
+const FileController = require('./app/controllers/FileController')
 
 // Custom Middlewares
 const authMiddleware = require('./app/middlewares/auth')
@@ -23,6 +24,8 @@ routes.use((req, res, next) => {
 })
 
 // ROUTES
+routes.get('/files/:file', FileController.show)
+
 routes.get('/', guestMiddleware, SessionController.create)
 routes.post('/signin', SessionController.store)
 routes.get('/signup', guestMiddleware, UserController.create)
