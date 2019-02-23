@@ -1,0 +1,13 @@
+{# SUCCESS MESSAGES #}
+{% for message in flashSuccess %}
+  <div class="alert alert-success">
+    {{ message }}
+  </div>
+{% endfor %}
+
+{# ERROR MESSAGES #}
+{% for message in flashError %}
+  <div class="alert alert-error">
+    {{ message }}
+  </div>
+{% endfor %}
