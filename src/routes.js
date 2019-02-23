@@ -4,6 +4,7 @@ const routes = express.Router()
 // Controllers
 const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
+const DashboardController = require('./app/controllers/DashboardController')
 
 // Custom Middlewares
 const authMiddleware = require('./app/middlewares/auth')
@@ -31,10 +32,7 @@ routes.post('/signup', upload.single('avatar'), UserController.store)
 routes.use('/app', authMiddleware)
 
 // ROUTES
-routes.get('/app/dashboard', (req, res) => {
-  console.log(req.session.user)
-  res.render('dashboard')
-})
+routes.get('/app/dashboard', DashboardController.index)
 routes.get('/app/logout', SessionController.destroy)
 
 module.exports = routes
