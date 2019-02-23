@@ -14,7 +14,8 @@ routes.get('/signup', UserController.create)
 routes.post('/signup', upload.single('avatar'), UserController.store)
 
 routes.get('/app/dashboard', (req, res) => {
-  return res.render('dashboard.njk')
+  console.log(req.session.user)
+  res.render('dashboard')
 })
 
 module.exports = routes
