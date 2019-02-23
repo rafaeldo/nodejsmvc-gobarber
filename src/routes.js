@@ -6,6 +6,7 @@ const UserController = require('./app/controllers/UserController')
 const SessionController = require('./app/controllers/SessionController')
 const DashboardController = require('./app/controllers/DashboardController')
 const FileController = require('./app/controllers/FileController')
+const AppointmentController = require('./app/controllers/AppointmentController')
 
 // Custom Middlewares
 const authMiddleware = require('./app/middlewares/auth')
@@ -36,6 +37,7 @@ routes.use('/app', authMiddleware)
 
 // ROUTES
 routes.get('/app/dashboard', DashboardController.index)
+routes.get('/app/appointments/new/:provider', AppointmentController.create)
 routes.get('/app/logout', SessionController.destroy)
 
 module.exports = routes
